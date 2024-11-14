@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblioteca de Procesos </title>
+    <style>
+        /* Estilos básicos */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #faf3f3;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        header {
+            background-color: #f1eded;
+            color: rgb(14, 13, 13);
+            text-align: center;
+            padding: 15px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        header img {
+            height: 50px;
+            margin-right: 15px;
+        }
+        h1 {
+            margin: 0;
+            text-align: center;
+            flex-grow: 1;
+        }
+        #searchContainer {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        #searchInput {
+            padding: 8px;
+            margin: 0 10px;
+            width: 80%;
+            max-width: 500px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            font-size: 16px;
+        }
+        #categoryList, #processDetail {
+            padding: 20px;
+            margin-top: 20px;
+            flex-grow: 1;
+            max-width: 1200px;
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .category-card, .process-item {
+            background: white;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        .category-card button, .process-item button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        .category-card button:hover, .process-item button:hover {
+            background-color: #0056b3;
+        }
+        .process-item button {
+            width: 100%;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        .back-button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .back-button:hover {
+            background-color: #218838;
+        }
+        .category-card:hover, .process-item:hover {
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+        }
+        .no-results {
+            color: red;
+            text-align: center;
+        }
+
+        /* Estilos responsivos */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+            h1 {
+                margin-top: 10px;
+            }
+            #searchInput {
+                width: 90%;
+            }
+            .category-card, .process-item {
+                margin: 15px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header con imagen a la izquierda y título centrado -->
+    <header>
+        <img src="https://somos.somosgrupoepm.com/theme_somos/static/assets/images/logos-botones/Logo.svg" alt="Logo de EPM"> <!-- Imagen a la izquierda -->
+        <h1>Biblioteca de Procesos - Somos grupo EPM</h1>
+    </header>
+
+    <!-- Contenedor de búsqueda -->
+    <div id="searchContainer">
+        <input type="text" id="searchInput" placeholder="Buscar proceso...">
+    </div>
+
+    <div id="categoryList"></div>
+    <div id="processDetail" style="display:none;">
+        <h3 id="processTitle"></h3>
+        <p id="processDescription"></p>
+        <ul id="processSteps"></ul>
+        <button class="back-button" onclick="goBack()">Volver</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
